@@ -1,30 +1,23 @@
 import requests as r
+import reverse_geocoder as rg
 
 
-res = r.get("http://api.open-notify.org/iss-now.json")
-obj = res.json()
-
-
-def mainfunc():
+def where_is_the_iss():
+    # get lat-lon position of the ISS from the API
+    res = r.get("http://api.open-notify.org/iss-now.json")
+    obj = res.json()
     lat = obj['iss_position']['latitude']
     lon = obj['iss_position']['longitude']
-    pass
+    coordinates = (lat, lon)
+
+    # run a reverse geocoder search
+    results = rg.search(coordinates, verbose=False)
+
+    message = "The ISS is currently above " + results[0]['name'] + ", " + \
+    results[0]['cc'] + "."
+
+    print(message)
+
 
 if __name__ == "__main__":
-    mainfunc()
-
-
-# import urllib2
-# import json
-
-# req = urllib2.Request("http://api.open-notify.org/iss-now.json")
-# response = urllib2.urlopen(req)
-
-# obj = json.loads(response.read())
-
-# print obj['timestamp']
-# print obj['iss_position']['latitude'], obj['data']['iss_position']['latitude']
-
-# # Example prints:
-# #   1364795862
-# #   -47.36999493 151.738540034
+    where_is_the_iss()
