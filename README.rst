@@ -16,5 +16,6 @@ Requirements
 
 * requests
 * numpy, scipy (for reverse_geocoder)
+* pycountry
 
 Works with Python 3.5
