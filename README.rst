@@ -10,12 +10,34 @@ What it does:
 2. Maps the long-lat to a country (using `reverse geocoder <https://github.com/thampiman/reverse-geocoder>`_).
 3. Print out a sentence like "The ISS is currently above <place>".
 
+***************
+Install and run
+***************
+
+To install from PyPI, run:
+
+ ``pip install whereiss``
+
+To install locally, clone or download the repo and run:
+
+ ``pip install -r requirements.txt``
+
+ ``pip install -e .``
+
 ************
 Requirements
 ************
 
-* requests
-* numpy, scipy (for reverse_geocoder)
 * pycountry
+* requests
+* reverse_geocoder
 
-Works with Python 3.5
+Works with Python 2.7, and >=3.5
+
+************
+Contributing
+************
+
+Pull Requests welcome!
+
+Fork the repo, make your changes and submit a Pull Request.
